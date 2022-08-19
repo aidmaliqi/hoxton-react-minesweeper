@@ -1,4 +1,4 @@
-type box = {
+export type box = {
   id: number;
   mine: boolean;
   count: number;
@@ -87,15 +87,3 @@ export const boxes: box[] = [
   },
 ];
 
-function randomItem(items: box[]) {
-  //let twentyPercent  = (items.length * 0.2).toFixed(0)
-  let twentyPercent = Math.round(items.length * 0.2);
-  while (twentyPercent !== 0) {
-    let item = items[Math.floor(Math.random() * items.length)];
-    if (item.mine === false) {
-        item.mine!
-      twentyPercent--
-    } 
-  }
-}
-randomItem(boxes)

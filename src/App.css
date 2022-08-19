@@ -12,5 +12,5 @@ input[type="checkbox"] {
 
 .form{
   display: grid;
-  grid-template-columns: repeat(10, 20px);
+  grid-template-columns: repeat(4, 20px);
 }
