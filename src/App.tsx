@@ -5,12 +5,10 @@ import { Checkboxes } from "./Components/CheckBoxes";
 import { boxes } from "./data/data";
 
 function App() {
-  const [checkbox, setCheckboxes] = useState();
-
   return (
-    <form action="" className="form">
-      <Checkboxes  />
-    </form>
+    <section className="main">
+      <Checkboxes />
+    </section>
   );
 }
 

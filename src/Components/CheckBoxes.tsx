@@ -3,6 +3,7 @@ import { box, boxes } from "../data/data";
 type Props = {
   boxes: box[];
 };
+
 export function Checkboxes() {
   const [checkBoxes, setCheckboxes] = useState<box[]>(boxes);
   const [isSubscribed, setIsSubscribed] = useState(true);
@@ -10,14 +11,16 @@ export function Checkboxes() {
 
   const handleChange = (event, item: box) => {
     let array = structuredClone(checkBoxes);
-    let item1 = array.find((element : box) => element.id === item.id )
-    item1.mine = event.target.checked
+    let item1 = array.find((element: box) => element.id === item.id);
+    item1.mine = event.target.checked;
 
     setCheckboxes(array);
-
-    
   };
-
+  function myFunctions() {
+    randomItem();
+    increase();
+    console.log(checkBoxes[4].count);
+  }
   function randomItem() {
     //let twentyPercent  = (items.length * 0.2).toFixed(0)
 
@@ -114,18 +117,19 @@ export function Checkboxes() {
     setCheckboxes(newArray);
   }
 
-  return checkBoxes.map((box) => {
-    console.log(box);
-
-    return (
-      <input
-        type="checkbox"
-        name=""
-        id=""
-        checked={box.mine}
-        onChange={handleChange}
-        key={box.id}
-      />
-    );
-  });
+  return (
+    <>
+      <ul className="ul">
+        {checkBoxes.map((item) => (
+          <li className="sector" key={item.id}>
+            {item.count}
+          </li>
+        ))}
+      </ul>
+      
+      <button className="Button" onClick={() => myFunctions()}>
+        Start game
+      </button>
+    </>
+  );
 }
